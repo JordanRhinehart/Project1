@@ -27,6 +27,36 @@ for i in loc:
         nationality_list.append(i)
 john = nationality_list.sort()
 
+#####################################################
+
+gr = data2.groupby(['nationality'])
+gr.get_group(list(gr.groups)[10]).groupby(['nationality','short_name']).count()
+# gd = data2.groupby('short_name').count()
+df5 = pd.DataFrame(gr, columns= ['nationality','short_name'])
+# six = df5.sort_values(['short_name'],ascending=[False])
+graph = df2.nlargest(5, 'wage_eur')
+
+
+
+
+#####################################################
+
+# Data = {'Country': ['USA','Canada','Germany','UK','France'],
+#         'GDP_Per_Capita': [45000,42000,52000,49000,47000]
+#        }
+# df4 = pd.DataFrame(data2,columns=['short_name', 'wage_eur'])
+
+# New_Colors = ['green','blue','purple','brown','teal']
+# plt.bar(graph['short_name'], graph['wage_eur'], color=New_Colors)
+# plt.title('Country Vs GDP Per Capita', fontsize=14)
+# plt.xlabel('Country', fontsize=14)
+# plt.ylabel('GDP Per Capita', fontsize=14)
+# plt.grid(True)
+# plt.show()
+
+#####################################################
+#####################################################
+
 print("\n")
 print (df)
 print("\n")
@@ -36,3 +66,9 @@ print(f"The number of rows in this dataset are {row_count}")
 print(f"The number of columns in this dataset are {column_count}")
 print("\n")
 print(f"There are {row_count} players ranging from the countries of {nationality_list}")
+print("\n")
+# print(df5)
+print("\n")
+# print(six.nlargest(10, 'short_name'))
+print("\n")
+print(df5)
