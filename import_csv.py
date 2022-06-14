@@ -46,16 +46,32 @@ df = pd.read_csv (r'D:\Users\yaima\Documents\Projects\players_20.csv')
 # print(df5.nlargest(10, 'short_name'))
 # print("\n")
 
-# Top 5 countries and their number of players, try to fill green color in bars.
-print("\n")
-countries = df.groupby(['nationality'], as_index=False)['short_name'].count()
-country_bar = countries.nlargest(5,'short_name')
-print(country_bar)
-plt.figure(figsize=(15,6))
-plt.bar(country_bar['nationality'],country_bar['short_name'],color='green')
-plt.xlabel('Nationality', size = 15)
-plt.ylabel('Number of Players', size=15)
-plt.title('Players per Country')
-plt.show()
+# # Top 5 countries and their number of players, try to fill green color in bars.
+# print("\n")
+# countries = df.groupby(['nationality'], as_index=False)['short_name'].count()
+# country_bar = countries.nlargest(5,'short_name')
+# print(country_bar)
+# plt.figure(figsize=(15,6))
+# plt.bar(country_bar['nationality'],country_bar['short_name'],color='green')
+# plt.xlabel('Nationality', size = 15)
+# plt.ylabel('Number of Players', size=15)
+# plt.title('Players per Country')
+# plt.show()
 
+# # Show top 5 players short name and wages.
+# print("\n")
+# top_wages = pd.DataFrame(df, columns= ['short_name','wage_eur'])
+# print(top_wages)
+
+# # Show top 5 players getting highest salaries.
+# highest_salaries = top_wages.nlargest(5, 'wage_eur')
+# print(highest_salaries)
+
+# # Bar plot of top 5 players getting highest salaries.
+# plt.figure(figsize=(15,6))
+# plt.bar(highest_salaries['short_name'],highest_salaries['wage_eur'],color='green')
+# plt.xlabel('Player Names', size = 15)
+# plt.ylabel('Players Wages', size=15)
+# plt.title('Top 5 Wages per Player')
+# plt.show()
 
