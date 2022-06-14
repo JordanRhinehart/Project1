@@ -86,10 +86,11 @@ print(highest_wages)
 
 print("QUESTION NUMBER NINE:")
 
-plt.bar(highest_wages['short_name'], highest_wages['wage_eur'], color='green')
-plt.title('Top Countries and Their Number of Players', fontsize=14)
-plt.xlabel('Country', fontsize=14)
-plt.ylabel('Number of Players', fontsize=14)
+New_Colors = ['green','blue','purple','brown','teal']
+plt.bar(highest_wages['short_name'], highest_wages['wage_eur'], color=New_Colors)
+plt.title('Top Paid Players and Their Wages', fontsize=14)
+plt.xlabel('Player', fontsize=14)
+plt.ylabel('Salary', fontsize=14)
 plt.grid(True)
 plt.show()
 
