@@ -65,13 +65,11 @@ plt.show()
 
 ############################################################
 ################ NUMBER SEVEN : ############################
-
-
 print("QUESTION NUMBER SEVEN:")
 wages = pd.DataFrame(data, columns= ['short_name','wage_eur'])
 print(wages)
 
-
+print("\n")
 ############################################################
 ################ NUMBER EIGHT : ############################
 
@@ -84,8 +82,6 @@ print(highest_wages)
 ############################################################
 ################# NUMBER NINE : ############################
 
-print("QUESTION NUMBER NINE:")
-
 New_Colors = ['green','blue','purple','brown','teal']
 plt.bar(highest_wages['short_name'], highest_wages['wage_eur'], color=New_Colors)
 plt.title('Top Paid Players and Their Wages', fontsize=14)
@@ -95,67 +91,97 @@ plt.grid(True)
 plt.show()
 
 
-
+print("\n")
 ############################################################
 ################## NUMBER TEN : ############################
 
+print("QUESTION NUMBER TEN:")
+germany = data2[data2['nationality'].str.contains('Germany')]
+print(germany.head(10))
+
+
 print("\n")
-print (df)
-print("\n")
-print (df3)
-
-# country_count = data2.shape[0]
-
-# print(f"This is what we get {df3.shape[0]}")
-loc = data2['nationality'].tolist()
-
-nationality_list = []
-for i in loc:
-    if i not in nationality_list:
-        nationality_list.append(i)
-john = nationality_list.sort()
 
 ############################################################
-################ NUMBER SEVEN : ############################
+################## NUMBER ELEVEN : #########################
+print("QUESTION NUMBER ELEVEN:")
 
-gr = data2.groupby(['nationality'], as_index=False)['short_name'].count()
-country_bar = gr.nlargest(5,'short_name')
-# gr.get_group(list(gr.groups)[0]).groupby('short_name').count()
-# gd = data2.groupby('short_name').count()
-df5 = pd.DataFrame(gr, columns= ['nationality', 'short_name'])
-# six = df5.sort_values(['short_name'],ascending=[False])
+print("The Heaviest German Players:")
+print(germany.nlargest(5,"weight_kg"))
+print("\n")
+print("The Tallest German Players:")
+print(germany.nlargest(5,"height_cm"))
+print("\n")
+print("The Most Paid German Players:")
+print(germany.nlargest(5,"wage_eur"))
 
+print("\n")
 
+############################################################
+################## NUMBER TWELVE : #########################
+print("QUESTION NUMBER TWELVE:")
 
-
-
-
-#####################################################
-
-# Data = {'Country': ['USA','Canada','Germany','UK','France'],
-#         'GDP_Per_Capita': [45000,42000,52000,49000,47000]
-#        }
-# df4 = pd.DataFrame(data2,columns=['short_name', 'wage_eur'])
-
-# New_Colors = ['green','blue','purple','brown','teal']
-# plt.bar(country_bar['nationality'], country_bar['short_name'], color=New_Colors)
-# plt.title('Country Vs GDP Per Capita', fontsize=14)
-# plt.xlabel('Country', fontsize=14)
-# plt.ylabel('GDP Per Capita', fontsize=14)
-# plt.grid(True)
-# plt.show()
-
-#####################################################
-#####################################################
-
-# print("\n")
+wages = pd.DataFrame(germany, columns= ['short_name','wage_eur'])
+print(wages.nlargest(5,"wage_eur"))
 
 
-# print("\n")
-# print(f"There are {row_count} players ranging from the countries of {nationality_list}")
-# print("\n")
-# # print(df5)
-# print("\n")
-# # print(six.nlargest(10, 'short_name'))
-# print("\n")
-# print(country_bar)
+print("\n")
+############################################################
+################## NUMBER THIRTEEN : #######################
+print("QUESTION NUMBER THIRTEEN:")
+
+top_shooters = pd.DataFrame(data2, columns= ['short_name','shooting'])
+print(top_shooters.nlargest(5,"shooting"))
+
+print("\n")
+############################################################
+################## NUMBER FOURTEEN : #######################
+print("QUESTION NUMBER FOURTEEN:")
+
+top_defenders = pd.DataFrame(data2, columns= ['short_name','defending', 'nationality', 'club'])
+print(top_defenders.nlargest(5,"defending"))
+
+
+print("\n")
+############################################################
+################## NUMBER FIFTEEN : #######################
+print("QUESTION NUMBER FIFTEEN:")
+
+real_madrid = data2[data2['club'].str.contains('Real Madrid')]
+madrid_wages = pd.DataFrame(real_madrid, columns= ['short_name','wage_eur'])
+print(madrid_wages.head(5))
+
+
+print("\n")
+############################################################
+################## NUMBER SIXTEEN : #######################
+print("QUESTION NUMBER SIXTEEN:")
+
+madrid_shooting = pd.DataFrame(real_madrid, columns= ['short_name','shooting'])
+print(madrid_shooting.head(5))
+
+print("\n")
+
+############################################################
+################## NUMBER SEVENTEEN : ######################
+print("QUESTION NUMBER SEVENTEEN:")
+
+madrid_defending = pd.DataFrame(real_madrid, columns= ['short_name','defending'])
+print(madrid_defending.head(5))
+
+print("\n")
+
+############################################################
+################## NUMBER EIGHTEEN : #######################
+print("QUESTION NUMBER EIGHTEEN:")
+
+madrid_nationality = pd.DataFrame(real_madrid, columns= ['short_name','nationality'])
+print(madrid_nationality.head(5))
+
+print("\n")
+
+
+
+
+############################################################
+############################################################
