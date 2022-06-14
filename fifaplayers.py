@@ -27,14 +27,19 @@ for i in loc:
         nationality_list.append(i)
 john = nationality_list.sort()
 
-#####################################################
+###################################################
 
-gr = data2.groupby(['nationality'])
-gr.get_group(list(gr.groups)[10]).groupby(['nationality','short_name']).count()
+gr = data2.groupby(['nationality'], as_index=False)['short_name'].count()
+country_bar = gr.nlargest(5,'short_name')
+# gr.get_group(list(gr.groups)[0]).groupby('short_name').count()
 # gd = data2.groupby('short_name').count()
-df5 = pd.DataFrame(gr, columns= ['nationality','short_name'])
+df5 = pd.DataFrame(gr, columns= ['nationality', 'short_name'])
 # six = df5.sort_values(['short_name'],ascending=[False])
 graph = df2.nlargest(5, 'wage_eur')
+
+# idx = data2.index.get_level_values(0)
+# df7 = data2[idx == idx[10]]
+# gr.loc([gr.index.levels[0][0]])
 
 
 
@@ -46,13 +51,13 @@ graph = df2.nlargest(5, 'wage_eur')
 #        }
 # df4 = pd.DataFrame(data2,columns=['short_name', 'wage_eur'])
 
-# New_Colors = ['green','blue','purple','brown','teal']
-# plt.bar(graph['short_name'], graph['wage_eur'], color=New_Colors)
-# plt.title('Country Vs GDP Per Capita', fontsize=14)
-# plt.xlabel('Country', fontsize=14)
-# plt.ylabel('GDP Per Capita', fontsize=14)
-# plt.grid(True)
-# plt.show()
+New_Colors = ['green','blue','purple','brown','teal']
+plt.bar(country_bar['nationality'], country_bar['short_name'], color=New_Colors)
+plt.title('Country Vs GDP Per Capita', fontsize=14)
+plt.xlabel('Country', fontsize=14)
+plt.ylabel('GDP Per Capita', fontsize=14)
+plt.grid(True)
+plt.show()
 
 #####################################################
 #####################################################
@@ -71,4 +76,4 @@ print("\n")
 print("\n")
 # print(six.nlargest(10, 'short_name'))
 print("\n")
-print(df5)
+print(country_bar)
