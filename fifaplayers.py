@@ -47,6 +47,7 @@ print("\n")
 
 print("QUESTION NUMBER FIVE:")
 top_countries = gr.nlargest(10,'short_name')
+top_countries2 = gr.nlargest(5,'short_name')
 print(top_countries)
 print("\n")
 
@@ -55,7 +56,7 @@ print("\n")
 ###################### NUMBER SIX : ########################
 
 
-plt.bar(top_countries['nationality'], top_countries['short_name'], color='green')
+plt.bar(top_countries2['nationality'], top_countries2['short_name'], color='green')
 plt.title('Top Countries and Their Number of Players', fontsize=14)
 plt.xlabel('Country', fontsize=14)
 plt.ylabel('Number of Players', fontsize=14)
@@ -122,7 +123,7 @@ print("\n")
 print("QUESTION NUMBER TWELVE:")
 
 wages = pd.DataFrame(germany, columns= ['short_name','wage_eur'])
-print(wages.nlargest(5,"wage_eur"))
+print(wages.head(5))
 
 
 print("\n")
@@ -179,9 +180,6 @@ madrid_nationality = pd.DataFrame(real_madrid, columns= ['short_name','nationali
 print(madrid_nationality.head(5))
 
 print("\n")
-
-
-
 
 ############################################################
 ############################################################
