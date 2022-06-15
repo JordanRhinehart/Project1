@@ -55,7 +55,6 @@ print('\n'"### Top 10 countries and their number of players ###\n")
 print(gr.nlargest(10))
 
 
-
 ###### Task 6: Top 5 countries and their number of players, try to fill green color in bars ######
 
 # Define countries to group by nationality without setting the column ID as the index and counting by the instances in the short_name column
@@ -92,7 +91,6 @@ print(top_wages.head(5))
 # Print top 5 paid world players 
 print('\n'"### Top 5 paid world players #####\n")
 print(top_wages.nlargest(5, 'wage_eur'))
-
 
 
 ###### Task 8: Show top 5 players getting highest salaries ######
